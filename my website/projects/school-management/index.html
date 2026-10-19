@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Management System | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-school"></i>
+        <span>Faiza's School</span>
+      </div>
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-target="dashboard">
+          <i class="fas fa-home"></i> Dashboard
+        </button>
+        <button class="nav-btn" data-target="students">
+          <i class="fas fa-user-graduate"></i> Students
+        </button>
+        <button class="nav-btn" data-target="teachers">
+          <i class="fas fa-chalkboard-teacher"></i> Teachers
+        </button>
+        <button class="nav-btn" data-target="classes">
+          <i class="fas fa-book-open"></i> Classes
+        </button>
+      </nav>
+      <a href="../../index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- DASHBOARD SECTION -->
+      <section id="dashboard" class="page-section active">
+        <div class="page-header">
+          <h1><i class="fas fa-chart-pie"></i> Dashboard Overview</h1>
+          <p>Welcome to Faiza's School Management System</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box blue">
+            <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="stat-info">
+              <h3 id="totalStudentsCount">0</h3>
+              <p>Total Students</p>
+            </div>
+          </div>
+          <div class="stat-box green">
+            <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="stat-info">
+              <h3 id="totalTeachersCount">0</h3>
+              <p>Total Teachers</p>
+            </div>
+          </div>
+          <div class="stat-box purple">
+            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+            <div class="stat-info">
+              <h3 id="totalClassesCount">0</h3>
+              <p>Total Classes</p>
+            </div>
+          </div>
+          <div class="stat-box orange">
+            <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="stat-info">
+              <h3 id="totalFeesCollected">Rs 0</h3>
+              <p>Fees Collected</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-section">
+          <h2><i class="fas fa-clock"></i> Recently Added Students</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Class</th>
+                  <th>Roll No</th>
+                  <th>Fees Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentStudentsBody">
+                <tr><td colspan="4" class="empty-msg">No students added yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STUDENTS SECTION -->
+      <section id="students" class="page-section">
+        <div class="page-header">
+          <h1><i class="fas fa-user-graduate"></i> Students Management</h1>
+          <button class="btn-primary" onclick="openModal('studentModal')">
+            <i class="fas fa-plus"></i> Add New Student
+          </button>
+        </div>
+
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" id="studentSearch" placeholder="Search students by name or class..." />
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Fees (Rs)</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+              <tr><td colspan="6" class="empty-msg">No students added yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TEACHERS SECTION -->
+      <section id="teachers" class="page-section">
+        <div class="page-header">
+          <h1><i class="fas fa-chalkboard-teacher"></i> Teachers Management</h1>
+          <button class="btn-primary" onclick="openModal('teacherModal')">
+            <i class="fas fa-plus"></i> Add New Teacher
+          </button>
+        </div>
+
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" id="teacherSearch" placeholder="Search teachers by name or subject..." />
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Qualification</th>
+                <th>Salary (Rs)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="teachersTableBody">
+              <tr><td colspan="5" class="empty-msg">No teachers added yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CLASSES SECTION -->
+      <section id="classes" class="page-section">
+        <div class="page-header">
+          <h1><i class="fas fa-book-open"></i> Classes Management</h1>
+          <button class="btn-primary" onclick="openModal('classModal')">
+            <i class="fas fa-plus"></i> Add New Class
+          </button>
+        </div>
+
+        <div class="cards-grid" id="classesGrid">
+          <div class="empty-msg" style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #888;">
+            No classes created yet. Click "Add New Class" to start.
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== MODALS ===== -->
+  
+  <!-- Student Modal -->
+  <div class="modal-overlay" id="studentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Add New Student</h2>
+        <button class="close-btn" onclick="closeModal('studentModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="studentForm">
+        <input type="hidden" id="studentId" />
+        <div class="form-group">
+          <label>Student Name</label>
+          <input type="text" id="stuName" required placeholder="e.g. Ali Ahmed" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Roll Number</label>
+            <input type="text" id="stuRoll" required placeholder="e.g. 101" />
+          </div>
+          <div class="form-group">
+            <label>Class</label>
+            <select id="stuClass" required>
+              <option value="">Select Class</option>
+              <option value="Class 1">Class 1</option>
+              <option value="Class 2">Class 2</option>
+              <option value="Class 3">Class 3</option>
+              <option value="Class 4">Class 4</option>
+              <option value="Class 5">Class 5</option>
+              <option value="Class 6">Class 6</option>
+              <option value="Class 7">Class 7</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10">Class 10</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Monthly Fees (Rs)</label>
+            <input type="number" id="stuFees" required placeholder="e.g. 5000" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Fees Status</label>
+            <select id="stuStatus">
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('studentModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Teacher Modal -->
+  <div class="modal-overlay" id="teacherModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Add New Teacher</h2>
+        <button class="close-btn" onclick="closeModal('teacherModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="teacherForm">
+        <input type="hidden" id="teacherId" />
+        <div class="form-group">
+          <label>Teacher Name</label>
+          <input type="text" id="tchName" required placeholder="e.g. Miss Faiza Ali" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" id="tchSubject" required placeholder="e.g. Computer Science" />
+          </div>
+          <div class="form-group">
+            <label>Qualification</label>
+            <input type="text" id="tchQual" required placeholder="e.g. MCS, B.Ed" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Monthly Salary (Rs)</label>
+          <input type="number" id="tchSalary" required placeholder="e.g. 40000" min="0" />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('teacherModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Save Teacher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Class Modal -->
+  <div class="modal-overlay" id="classModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Add New Class</h2>
+        <button class="close-btn" onclick="closeModal('classModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="classForm">
+        <div class="form-group">
+          <label>Class Name</label>
+          <input type="text" id="clsName" required placeholder="e.g. Class 5 - A" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Class Teacher</label>
+            <select id="clsTeacher">
+              <option value="">Select Teacher</option>
+              <!-- Options populated dynamically -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Room Number</label>
+            <input type="text" id="clsRoom" required placeholder="e.g. Room 12" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('classModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Save Class</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMessage">Saved successfully!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

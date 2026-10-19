@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.back-btn {
+  position: absolute;
+  top: 2rem; left: 2rem;
+  text-decoration: none;
+  color: #d97706;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s;
+}
+.back-btn:hover { color: #b45309; transform: translateX(-5px); }
+
+/* ===== LOGIN CONTAINER ===== */
+.login-container {
+  background: #ffffff;
+  padding: 3rem 2.5rem 6rem; /* Bottom padding extra for panda */
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.login-container h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.login-container > p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== INPUTS ===== */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper > i:first-child {
+  position: absolute;
+  left: 1rem; top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+.input-wrapper input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.8rem;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: 0.3s;
+  background: #fafafa;
+}
+.input-wrapper input:focus {
+  border-color: #fbbf24;
+  background: #fff;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 1rem; top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.eye-btn:hover { color: #333; }
+
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #fbbf24;
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1rem;
+}
+.login-btn:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+}
+
+/* ==========================================
+   THE PANDA DRAWING & ANIMATIONS
+   ========================================== */
+
+.panda-container {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  pointer-events: none; /* So it doesn't block clicking */
+}
+
+.panda {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Idle floating animation */
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Ears */
+.panda .ear {
+  position: absolute;
+  top: 5px;
+  width: 35px; height: 35px;
+  background: #222;
+  border-radius: 50%;
+  z-index: 1;
+}
+.panda .ear.left { left: 10px; }
+.panda .ear.right { right: 10px; }
+
+/* Face */
+.panda .face {
+  position: absolute;
+  top: 15px; left: 50%;
+  transform: translateX(-50%);
+  width: 90px; height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* Eyes */
+.panda .eye {
+  position: absolute;
+  top: 25px;
+  width: 22px; height: 28px;
+  background: #222;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.panda .eye.left { left: 18px; transform: rotate(-15deg); }
+.panda .eye.right { right: 18px; transform: rotate(15deg); }
+
+/* Pupil (Moving eye) */
+.panda .pupil {
+  position: absolute;
+  top: 7px; left: 7px;
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+/* Nose & Mouth */
+.panda .nose {
+  position: absolute;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 8px;
+  background: #222;
+  border-radius: 50px;
+}
+.panda .mouth {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 10px;
+  border-bottom: 2px solid #222;
+  border-radius: 50%;
+}
+
+/* ===== HANDS (Paws) ===== */
+.panda .hand {
+  position: absolute;
+  top: 45px;
+  width: 30px; height: 40px;
+  background: #222;
+  border-radius: 50px;
+  z-index: 3;
+  transition: 0.4s ease-in-out;
+}
+.panda .hand.left { left: -5px; transform-origin: bottom right; transform: rotate(45deg); }
+.panda .hand.right { right: -5px; transform-origin: bottom left; transform: rotate(-45deg); }
+
+/* ===== ANIMATION STATES ===== */
+
+/* Jab user typing karega (hands cover eyes) */
+.panda.active .hand.left {
+  transform: rotate(135deg) translate(10px, -5px);
+}
+.panda.active .hand.right {
+  transform: rotate(-135deg) translate(-10px, -5px);
+}
+
+/* Jab password show hoga (hands go down) */
+.panda.show-password .hand.left {
+  transform: rotate(30deg) translate(15px, 20px);
+}
+.panda.show-password .hand.right {
+  transform: rotate(-30deg) translate(-15px, 20px);
+}
+
+/* Eye tracking animation (pupil moves left/right) */
+@keyframes lookAround {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(4px, 0); }
+  50% { transform: translate(0, 4px); }
+  75% { transform: translate(-4px, 0); }
+}
+.panda:not(.active) .pupil {
+  animation: lookAround 4s infinite;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .login-container { padding: 2rem 1.5rem 5rem; }
+  .panda-container { width: 100px; height: 100px; bottom: -15px; }
+  .panda .ear { width: 30px; height: 30px; }
+  .panda .face { width: 75px; height: 65px; }
+  .panda .eye { width: 18px; height: 24px; top: 20px; }
+  .panda .eye.left { left: 15px; }
+  .panda .eye.right { right: 15px; }
+  .panda .hand { width: 25px; height: 35px; top: 35px; }
+  .back-btn { top: 1rem; left: 1rem; font-size: 0.8rem; }
+}

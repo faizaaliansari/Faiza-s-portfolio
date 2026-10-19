@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrbanKicks | Branded Shoes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
+    <div class="logo">Urban<span>Kicks</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <span class="badge">New Arrivals 2025</span>
+      <h1>Step Into <br><span>Greatness.</span></h1>
+      <p>Discover the latest collection of premium branded shoes. Built for comfort, designed for style.</p>
+      <a href="#shop" class="btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-image">
+      <div class="glow-effect"></div>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Branded Shoe" class="hero-shoe" />
+    </div>
+  </section>
+
+  <!-- SHOP SECTION -->
+  <section id="shop" class="shop-section">
+    <div class="section-header">
+      <h2>Trending <span>Collection</span></h2>
+      <p>Choose your perfect pair from our premium selection.</p>
+    </div>
+
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+      <button class="filter-btn" onclick="filterProducts('men')">Men</button>
+      <button class="filter-btn" onclick="filterProducts('women')">Women</button>
+      <button class="filter-btn" onclick="filterProducts('sports')">Sports</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will be injected here by JS -->
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>Why Choose <span>UrbanKicks?</span></h2>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-truck-fast"></i>
+          <h3>Fast Delivery</h3>
+          <p>Free shipping on all orders above Rs. 5000.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-medal"></i>
+          <h3>100% Original</h3>
+          <p>Guaranteed authentic products directly from brands.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-rotate-left"></i>
+          <h3>Easy Returns</h3>
+          <p>7 days hassle-free return and exchange policy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-bag"></i> Your Cart</h2>
+      <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart-msg">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="total">
+        <span>Total:</span>
+        <span id="cartTotal">Rs 0</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">Checkout <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 UrbanKicks | Designed by <strong>Miss Faiza Ali</strong></p>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMsg">Added to cart!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

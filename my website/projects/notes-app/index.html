@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes App | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="app-container">
+    <header class="header">
+      <h1><i class="fas fa-sticky-note"></i> My Notes</h1>
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search notes..." oninput="searchNotes()" />
+      </div>
+    </header>
+
+    <!-- Note Creator -->
+    <div class="note-creator">
+      <input type="text" id="noteTitle" placeholder="Title" />
+      <textarea id="noteBody" rows="3" placeholder="Take a note..."></textarea>
+      
+      <div class="creator-footer">
+        <div class="colors">
+          <div class="color-dot active" style="background: #ffffff;" onclick="selectColor(this, '#ffffff')"></div>
+          <div class="color-dot" style="background: #fca5a5;" onclick="selectColor(this, '#fca5a5')"></div>
+          <div class="color-dot" style="background: #86efac;" onclick="selectColor(this, '#86efac')"></div>
+          <div class="color-dot" style="background: #93c5fd;" onclick="selectColor(this, '#93c5fd')"></div>
+          <div class="color-dot" style="background: #fde047;" onclick="selectColor(this, '#fde047')"></div>
+        </div>
+        <button class="btn-add" onclick="addNote()"><i class="fas fa-plus"></i> Add Note</button>
+      </div>
+    </div>
+
+    <!-- Notes Grid -->
+    <div class="notes-grid" id="notesGrid">
+      <!-- Notes will be injected here -->
+    </div>
+    
+    <div class="empty-state" id="emptyState" style="display: none;">
+      <i class="far fa-sticky-note"></i>
+      <p>No notes yet. Create your first note!</p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMsg">Note added!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

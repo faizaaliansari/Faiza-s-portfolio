@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panda Login | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="login-container">
+    <h2>Welcome Back!</h2>
+    <p>Please login to your account</p>
+
+    <form id="loginForm" onsubmit="event.preventDefault();">
+      
+      <!-- Email Input -->
+      <div class="input-group">
+        <label>Email Address</label>
+        <div class="input-wrapper">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="faiza@example.com" required />
+        </div>
+      </div>
+
+      <!-- Password Input with Panda -->
+      <div class="input-group">
+        <label>Password</label>
+        <div class="input-wrapper">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Enter password" required />
+          <button type="button" class="eye-btn" id="eyeBtn"><i class="fas fa-eye"></i></button>
+        </div>
+
+        <!-- The Animated Panda -->
+        <div class="panda-container">
+          <div class="panda">
+            <!-- Ears -->
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <!-- Face -->
+            <div class="face">
+              <!-- Eyes -->
+              <div class="eye left"><div class="pupil"></div></div>
+              <div class="eye right"><div class="pupil"></div></div>
+              <!-- Nose & Mouth -->
+              <div class="nose"></div>
+              <div class="mouth"></div>
+            </div>
+            <!-- Hands / Paws -->
+            <div class="hand left"></div>
+            <div class="hand right"></div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

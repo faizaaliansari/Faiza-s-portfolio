@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="chat-container">
+    <!-- Chat Header -->
+    <header class="chat-header">
+      <div class="bot-info">
+        <div class="bot-avatar">
+          <i class="fas fa-robot"></i>
+          <span class="online-dot"></span>
+        </div>
+        <div class="bot-details">
+          <h2>Faiza's AI</h2>
+          <p>Online & Ready to Help</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="voiceToggle" class="icon-btn" title="Toggle Voice"><i class="fas fa-volume-up"></i></button>
+        <button id="clearChat" class="icon-btn" title="Clear Chat"><i class="fas fa-trash"></i></button>
+      </div>
+    </header>
+
+    <!-- Chat Messages Area -->
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will be injected here -->
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+      <span></span><span></span><span></span>
+    </div>
+
+    <!-- Chat Input Area -->
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Ask me anything..." autocomplete="off" />
+      <button id="sendBtn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase | Online Shopping</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
+    <div class="logo"><i class="fas fa-shopping-bag"></i> Shop<span>Ease</span></div>
+    
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search for products..." />
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" title="Wishlist"><i class="far fa-heart"></i></button>
+      <button class="icon-btn cart-btn" onclick="toggleCart()" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">Mega Sale is Live 🎉</span>
+      <h1>Discover Your <br>Style with <span>ShopEase.</span></h1>
+      <p>Shop the latest trends in electronics, fashion, and accessories with up to 50% off.</p>
+      <a href="#shop" class="btn-primary">Start Shopping <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Shopping">
+    </div>
+  </header>
+
+  <!-- MAIN SHOP SECTION -->
+  <section class="shop-section" id="shop">
+    
+    <!-- Sidebar Categories -->
+    <aside class="sidebar">
+      <h3><i class="fas fa-list"></i> Categories</h3>
+      <ul class="category-list">
+        <li class="active" onclick="filterCategory('all', this)">All Products</li>
+        <li onclick="filterCategory('electronics', this)">Electronics</li>
+        <li onclick="filterCategory('fashion', this)">Fashion</li>
+        <li onclick="filterCategory('accessories', this)">Accessories</li>
+      </ul>
+    </aside>
+
+    <!-- Products Area -->
+    <div class="products-area">
+      <div class="products-header">
+        <h2>Our Products</h2>
+        <span id="productCount">Showing 0 items</span>
+      </div>
+      
+      <div class="products-grid" id="productsGrid">
+        <!-- Products injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+      <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart-msg">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="subtotal">
+        <span>Subtotal:</span>
+        <span id="cartTotal">Rs 0</span>
+      </div>
+      <div class="shipping">
+        <span>Shipping:</span>
+        <span id="shippingFee">Rs 0</span>
+      </div>
+      <div class="total">
+        <span>Total:</span>
+        <span id="grandTotal">Rs 0</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">
+        Checkout <i class="fas fa-lock"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMsg">Added to cart!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 ShopEase | Designed by <strong>Miss Faiza Ali</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

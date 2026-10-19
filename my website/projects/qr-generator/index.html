@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="app-container">
+    <header class="header">
+      <div class="icon-wrapper">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <h1>QR Code Generator</h1>
+      <p>Create custom QR codes instantly</p>
+    </header>
+
+    <div class="main-content">
+      <!-- Input Section -->
+      <div class="input-section">
+        <div class="form-group">
+          <label>Enter Text or URL</label>
+          <textarea id="qrText" rows="3" placeholder="e.g. https://faiza-portfolio.netlify.app"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>QR Color</label>
+            <div class="color-picker-wrapper">
+              <input type="color" id="qrColor" value="#1e293b" />
+              <span>Select Color</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Size</label>
+            <select id="qrSize">
+              <option value="150">Small (150px)</option>
+              <option value="200" selected>Medium (200px)</option>
+              <option value="300">Large (300px)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-generate" onclick="generateQR()">
+          <i class="fas fa-magic"></i> Generate QR Code
+        </button>
+      </div>
+
+      <!-- Output Section -->
+      <div class="output-section">
+        <div class="qr-box" id="qrBox">
+          <div id="qrcode"></div>
+          <p class="placeholder-text" id="placeholderText">Your QR code will appear here</p>
+        </div>
+        
+        <button class="btn-download" id="downloadBtn" onclick="downloadQR()" disabled>
+          <i class="fas fa-download"></i> Download QR
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMsg">QR Generated!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

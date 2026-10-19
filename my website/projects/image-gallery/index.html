@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="app-container">
+    <header class="header">
+      <h1><i class="fas fa-images"></i> My Gallery</h1>
+      <p>A collection of beautiful moments</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterImages('all', this)">All</button>
+      <button class="filter-btn" onclick="filterImages('nature', this)">Nature</button>
+      <button class="filter-btn" onclick="filterImages('city', this)">City</button>
+      <button class="filter-btn" onclick="filterImages('animals', this)">Animals</button>
+      <button class="filter-btn" onclick="filterImages('tech', this)">Tech</button>
+    </div>
+
+    <!-- Image Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Images will be injected by JS -->
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <button class="lb-prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></button>
+    
+    <div class="lb-content">
+      <img src="" alt="Preview" id="lbImage" />
+      <div class="lb-caption">
+        <h3 id="lbTitle">Image Title</h3>
+        <p id="lbCategory">Category</p>
+      </div>
+    </div>
+
+    <button class="lb-next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

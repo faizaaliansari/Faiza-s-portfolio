@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
+      <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+      <p id="dateDisplay"></p>
+    </header>
+
+    <div class="progress-section">
+      <div class="progress-header">
+        <span>Progress</span>
+        <span id="progressText">0 / 0</span>
+      </div>
+      <div class="progress-bar-todo">
+        <div class="progress-fill-todo" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="input-card">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" />
+      <button id="addBtn"><i class="fas fa-plus"></i> Add</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <ul class="task-list" id="taskList"></ul>
+
+    <div class="footer-actions">
+      <span id="itemsLeft">0 items left</span>
+      <button id="clearCompleted"><i class="fas fa-trash"></i> Clear Completed</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

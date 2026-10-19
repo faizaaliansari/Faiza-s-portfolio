@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel Formula Calculator | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <h1><i class="fas fa-file-excel"></i> Excel Formula Calculator</h1>
+    <p>Interactive tool to understand & calculate common Excel formulas</p>
+  </header>
+
+  <main>
+    <div class="formula-tabs">
+      <button class="tab active" data-formula="sum">SUM</button>
+      <button class="tab" data-formula="average">AVERAGE</button>
+      <button class="tab" data-formula="max">MAX</button>
+      <button class="tab" data-formula="min">MIN</button>
+      <button class="tab" data-formula="count">COUNT</button>
+    </div>
+
+    <div class="calculator-box">
+      <div class="formula-display">
+        <label>Formula:</label>
+        <div class="formula-text" id="formulaText">=SUM(A1:A5)</div>
+      </div>
+
+      <div class="input-section">
+        <label>Enter numbers (comma separated):</label>
+        <input type="text" id="numberInput" placeholder="e.g. 10, 20, 30, 40, 50" value="10, 20, 30, 40, 50" />
+        <button id="calculateBtn" class="calc-btn">
+          <i class="fas fa-calculator"></i> Calculate
+        </button>
+      </div>
+
+      <div class="result-box">
+        <span>Result:</span>
+        <div class="result-value" id="resultValue">150</div>
+      </div>
+
+      <div class="explanation">
+        <h3><i class="fas fa-info-circle"></i> How it works</h3>
+        <p id="explanationText">SUM adds all the numbers together. Example: 10 + 20 + 30 + 40 + 50 = 150</p>
+      </div>
+    </div>
+
+    <div class="examples-section">
+      <h2><i class="fas fa-lightbulb"></i> Try These Examples</h2>
+      <div class="examples-grid">
+        <div class="example-card" onclick="loadExample('10, 20, 30, 40, 50')">
+          <h4>Basic Sum</h4><p>10, 20, 30, 40, 50</p>
+        </div>
+        <div class="example-card" onclick="loadExample('100, 250, 75, 320')">
+          <h4>Sales Data</h4><p>100, 250, 75, 320</p>
+        </div>
+        <div class="example-card" onclick="loadExample('85, 92, 78, 95, 88')">
+          <h4>Student Marks</h4><p>85, 92, 78, 95, 88</p>
+        </div>
+        <div class="example-card" onclick="loadExample('5, 12, 8, 20, 3, 15')">
+          <h4>Mixed Numbers</h4><p>5, 12, 8, 20, 3, 15</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer><p>Built by <strong>Miss Faiza Ali</strong> | IT Trainer & Excel Expert</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>

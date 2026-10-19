@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn no-print"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="app-container">
+    
+    <!-- EDITOR SECTION (Left Side) -->
+    <div class="editor-section no-print">
+      <header class="editor-header">
+        <h1><i class="fas fa-edit"></i> Resume Editor</h1>
+        <p>Fill the details and see live preview</p>
+      </header>
+
+      <div class="accordion">
+        <!-- 1. Personal Info -->
+        <div class="acc-item active">
+          <div class="acc-header" onclick="toggleAccordion(this)">
+            <h3><i class="fas fa-user"></i> Personal Information</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="acc-content">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="nameInput" placeholder="Miss Faiza Ali" oninput="updatePreview()" />
+            </div>
+            <div class="form-group">
+              <label>Job Title</label>
+              <input type="text" id="titleInput" placeholder="IT Trainer & Web Developer" oninput="updatePreview()" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="emailInput" placeholder="faiza@example.com" oninput="updatePreview()" />
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" id="phoneInput" placeholder="+92 300 1234567" oninput="updatePreview()" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" id="locationInput" placeholder="Karachi, Pakistan" oninput="updatePreview()" />
+            </div>
+            <div class="form-group">
+              <label>Professional Summary</label>
+              <textarea id="summaryInput" rows="3" placeholder="A short summary about yourself..." oninput="updatePreview()"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Experience -->
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">
+            <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="acc-content">
+            <div id="experienceList">
+              <!-- Experience items will be added here -->
+            </div>
+            <button class="btn-add" onclick="addExperience()"><i class="fas fa-plus"></i> Add Experience</button>
+          </div>
+        </div>
+
+        <!-- 3. Education -->
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">
+            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="acc-content">
+            <div id="educationList">
+              <!-- Education items will be added here -->
+            </div>
+            <button class="btn-add" onclick="addEducation()"><i class="fas fa-plus"></i> Add Education</button>
+          </div>
+        </div>
+
+        <!-- 4. Skills -->
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">
+            <h3><i class="fas fa-tools"></i> Skills</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="acc-content">
+            <div class="form-group">
+              <label>Skills (comma separated)</label>
+              <input type="text" id="skillsInput" placeholder="HTML, CSS, JavaScript, Excel, Python" oninput="updatePreview()" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-print" onclick="window.print()">
+        <i class="fas fa-download"></i> Download / Print Resume (PDF)
+      </button>
+    </div>
+
+    <!-- PREVIEW SECTION (Right Side) -->
+    <div class="preview-section">
+      <div class="resume-paper" id="resumePaper">
+        
+        <!-- Resume Header -->
+        <div class="r-header">
+          <h1 id="rName">Miss Faiza Ali</h1>
+          <p id="rTitle">IT Trainer & Web Developer</p>
+          <div class="r-contact" id="rContact">
+            <span><i class="fas fa-envelope"></i> faiza@example.com</span>
+            <span><i class="fas fa-phone"></i> +92 300 1234567</span>
+            <span><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="r-section" id="rSummarySection">
+          <h2>Professional Summary</h2>
+          <p id="rSummary">A short summary about yourself...</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="r-section" id="rExperienceSection" style="display: none;">
+          <h2>Work Experience</h2>
+          <div id="rExperienceList"></div>
+        </div>
+
+        <!-- Education -->
+        <div class="r-section" id="rEducationSection" style="display: none;">
+          <h2>Education</h2>
+          <div id="rEducationList"></div>
+        </div>
+
+        <!-- Skills -->
+        <div class="r-section" id="rSkillsSection" style="display: none;">
+          <h2>Skills</h2>
+          <div class="r-skills" id="rSkillsList"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

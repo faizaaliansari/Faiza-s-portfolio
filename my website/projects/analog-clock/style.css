@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  /* Dark gradient background */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  text-decoration: none;
+  color: #a0aab5;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s;
+  z-index: 10;
+}
+.back-btn:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+/* Container for clock & text */
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ===== MAIN CLOCK ===== */
+.clock {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+              inset 0 0 30px rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center Dot */
+.center-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Clock Numbers */
+.number {
+  position: absolute;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.number-12 { top: 20px; }
+.number-3 { right: 20px; }
+.number-6 { bottom: 20px; }
+.number-9 { left: 20px; }
+
+/* ===== TICK MARKS ===== */
+.ticks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.tick {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  top: 0;
+  left: 50%;
+  transform-origin: 50% 175px; /* Half of clock height (350px / 2) */
+}
+.tick.major {
+  height: 18px;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== HANDS ===== */
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+/* Hour Hand */
+.hour {
+  width: 8px;
+  height: 90px;
+  background: #fff;
+  margin-left: -4px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Minute Hand */
+.minute {
+  width: 6px;
+  height: 130px;
+  background: #fff;
+  margin-left: -3px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Second Hand */
+.second {
+  width: 2px;
+  height: 150px;
+  background: #ff4757; /* Red for second hand */
+  margin-left: -1px;
+  box-shadow: 0 0 15px rgba(255, 71, 87, 0.8);
+  z-index: 6;
+}
+/* Extension for second hand below center */
+.second::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #ff4757;
+  border-radius: 10px;
+}
+
+/* ===== DIGITAL TIME ===== */
+.digital-time {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-family: monospace;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-top: -1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .clock {
+    width: 280px;
+    height: 280px;
+  }
+  .number {
+    font-size: 1.4rem;
+  }
+  .number-12 { top: 15px; }
+  .number-3 { right: 15px; }
+  .number-6 { bottom: 15px; }
+  .number-9 { left: 15px; }
+  
+  .tick { transform-origin: 50% 140px; /* Half of 280px */ }
+  
+  .hour { height: 70px; }
+  .minute { height: 100px; }
+  .second { height: 120px; }
+  
+  .digital-time {
+    font-size: 1.5rem;
+  }
+  .back-btn {
+    top: 1rem;
+    left: 1rem;
+  }
+}

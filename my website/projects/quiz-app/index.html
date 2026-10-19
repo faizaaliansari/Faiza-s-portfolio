@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel & IT Quiz | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+    <div id="startScreen" class="screen active">
+      <div class="icon-big"><i class="fas fa-question-circle"></i></div>
+      <h1>Excel & IT Quiz</h1>
+      <p>Test your knowledge of Excel formulas, IT basics & programming</p>
+      <div class="quiz-info">
+        <div><i class="fas fa-list-ol"></i><span>10 Questions</span></div>
+        <div><i class="fas fa-clock"></i><span>30 Seconds each</span></div>
+        <div><i class="fas fa-trophy"></i><span>Score & Review</span></div>
+      </div>
+      <button id="startBtn" class="btn-primary"><i class="fas fa-play"></i> Start Quiz</button>
+    </div>
+
+    <div id="quizScreen" class="screen">
+      <div class="quiz-header">
+        <div class="progress-info">
+          <span>Question <strong id="currentQ">1</strong> / <strong id="totalQ">10</strong></span>
+        </div>
+        <div class="timer">
+          <i class="fas fa-clock"></i> <span id="timer">30</span>s
+        </div>
+      </div>
+      <div class="progress-bar-quiz">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="question-box">
+        <h2 id="questionText">Loading...</h2>
+        <div class="options" id="optionsContainer"></div>
+      </div>
+      <button id="nextBtn" class="btn-primary" style="display:none;">Next <i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    <div id="resultScreen" class="screen">
+      <div class="result-icon" id="resultIcon"><i class="fas fa-trophy"></i></div>
+      <h1 id="resultTitle">Quiz Complete!</h1>
+      <div class="score-circle">
+        <div class="score-value" id="scoreValue">0/10</div>
+        <div class="score-percent" id="scorePercent">0%</div>
+      </div>
+      <p id="resultMessage">Great effort!</p>
+      <div class="result-btns">
+        <button id="reviewBtn" class="btn-secondary"><i class="fas fa-eye"></i> Review</button>
+        <button id="restartBtn" class="btn-primary"><i class="fas fa-redo"></i> Try Again</button>
+      </div>
+    </div>
+
+    <div id="reviewScreen" class="screen">
+      <h1><i class="fas fa-clipboard-list"></i> Review Answers</h1>
+      <div id="reviewContainer"></div>
+      <button id="backToResult" class="btn-primary"><i class="fas fa-arrow-left"></i> Back to Result</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

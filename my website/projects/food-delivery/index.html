@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodieExpress | Food Delivery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
+    <div class="logo"><i class="fas fa-utensils"></i> Foodie<span>Express</span></div>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-basket"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Delicious food, <br>delivered to your <span>doorstep.</span></h1>
+      <p>Order from your favorite local restaurants with fast delivery and fresh taste.</p>
+      
+      <div class="search-box">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" placeholder="Enter your delivery address..." />
+        <button class="btn-primary">Find Food</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="section-title">
+      <h2>Explore Our <span>Menu</span></h2>
+      <p>Choose from a wide variety of mouth-watering dishes</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+      <button class="filter-btn" onclick="filterMenu('fastfood')">Fast Food</button>
+      <button class="filter-btn" onclick="filterMenu('desi')">Desi</button>
+      <button class="filter-btn" onclick="filterMenu('chinese')">Chinese</button>
+      <button class="filter-btn" onclick="filterMenu('drinks')">Drinks</button>
+    </div>
+
+    <!-- Food Grid -->
+    <div class="food-grid" id="foodGrid">
+      <!-- Food items will be injected by JS -->
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section">
+    <div class="feature-box">
+      <i class="fas fa-motorcycle"></i>
+      <h3>Fast Delivery</h3>
+      <p>Get your food delivered within 30 minutes.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-leaf"></i>
+      <h3>Fresh Food</h3>
+      <p>We ensure 100% fresh and hygienic food.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-tags"></i>
+      <h3>Best Offers</h3>
+      <p>Daily discounts and free delivery offers.</p>
+    </div>
+  </section>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-basket"></i> Your Basket</h2>
+      <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart-msg">Your basket is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="subtotal">
+        <span>Subtotal:</span>
+        <span id="cartTotal">Rs 0</span>
+      </div>
+      <div class="delivery-fee">
+        <span>Delivery Fee:</span>
+        <span>Rs 150</span>
+      </div>
+      <div class="total">
+        <span>Total:</span>
+        <span id="grandTotal">Rs 0</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">
+        Proceed to Checkout <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toastMsg">Added to basket!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 FoodieExpress | Designed by <strong>Miss Faiza Ali</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

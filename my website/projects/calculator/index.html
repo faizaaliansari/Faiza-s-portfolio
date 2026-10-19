@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Calculator | Faiza Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+  <div class="calculator">
+    <!-- Top Bar with History Icon -->
+    <div class="calc-header">
+      <div class="history-toggle" onclick="toggleHistory()">
+        <i class="fas fa-history"></i>
+      </div>
+    </div>
+
+    <!-- Display Screen -->
+    <div class="display">
+      <div class="expression" id="expression"></div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <!-- Keypad -->
+    <div class="keypad">
+      <!-- Row 1 -->
+      <button class="btn function" onclick="clearAll()">AC</button>
+      <button class="btn function" onclick="backspace()"><i class="fas fa-delete-left"></i></button>
+      <button class="btn function" onclick="appendOperator('%')">%</button>
+      <button class="btn operator" onclick="appendOperator('/')">÷</button>
+
+      <!-- Row 2 -->
+      <button class="btn" onclick="appendNumber('7')">7</button>
+      <button class="btn" onclick="appendNumber('8')">8</button>
+      <button class="btn" onclick="appendNumber('9')">9</button>
+      <button class="btn operator" onclick="appendOperator('*')">×</button>
+
+      <!-- Row 3 -->
+      <button class="btn" onclick="appendNumber('4')">4</button>
+      <button class="btn" onclick="appendNumber('5')">5</button>
+      <button class="btn" onclick="appendNumber('6')">6</button>
+      <button class="btn operator" onclick="appendOperator('-')">−</button>
+
+      <!-- Row 4 -->
+      <button class="btn" onclick="appendNumber('1')">1</button>
+      <button class="btn" onclick="appendNumber('2')">2</button>
+      <button class="btn" onclick="appendNumber('3')">3</button>
+      <button class="btn operator" onclick="appendOperator('+')">+</button>
+
+      <!-- Row 5 -->
+      <button class="btn span-2" onclick="appendNumber('0')">0</button>
+      <button class="btn" onclick="appendNumber('.')">.</button>
+      <button class="btn equal" onclick="calculate()">=</button>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" id="historyPanel">
+      <div class="history-header">
+        <h3>History</h3>
+        <button onclick="clearHistory()">Clear</button>
+      </div>
+      <ul class="history-list" id="historyList">
+        <li class="empty-history">No calculations yet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
